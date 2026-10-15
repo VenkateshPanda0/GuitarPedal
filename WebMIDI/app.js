@@ -3219,8 +3219,10 @@ function vuMake(label) {
     fill.className = 'vu-fill';
     const hold = document.createElement('div');
     hold.className = 'vu-hold';
-    track.append(fill, hold);
-    row.append(name, track);
+    track.appendChild(fill);
+    track.appendChild(hold);
+    row.appendChild(name);
+    row.appendChild(track);
     return { row, track, fill, hold, held: VU_RANGE_DB, heldAt: 0 };
 }
 
@@ -3229,7 +3231,8 @@ function vuBuild() {
     box.className = 'vu';
     vuState.in = vuMake('in');
     vuState.out = vuMake('out');
-    box.append(vuState.in.row, vuState.out.row);
+    box.appendChild(vuState.in.row);
+    box.appendChild(vuState.out.row);
     return box;
 }
 
